@@ -6,7 +6,6 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="styles.css">
   <title>Product 1 - Stylish High Heels</title>
-  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <nav>
@@ -24,27 +23,34 @@
   </header>
 
   <main class="product-page">
-    <section class="product-details">
-      <div class="product-images">
-        <div class="main-image">
-          <img src="images/shoe1/1.webp" alt="Stylish High Heels" id="mainImage">
+    <div class="container">
+      <section class="product-details">
+        <div class="product-images">
+          <div class="main-image">
+            <img src="images/shoe1/1.webp" alt="Stylish High Heels" id="mainImage">
+          </div>
+          <div class="thumbnail-images">
+            <img src="images/shoe1/1.webp" alt="Stylish High Heels Thumbnail" class="thumbnail" onclick="changeImage('images/shoe1/1.webp')">
+            <img src="images/shoe1/2.webp" alt="Stylish High Heels Thumbnail" class="thumbnail" onclick="changeImage('images/shoe1/2.webp')">
+            <img src="images/shoe1/3.jpg" alt="Stylish High Heels Thumbnail" class="thumbnail" onclick="changeImage('images/shoe1/3.jpg')">
+            <img src="images/shoe1/4.jpg" alt="Stylish High Heels Thumbnail" class="thumbnail" onclick="changeImage('images/shoe1/4.jpg')">
+            <img src="images/shoe1/5.jpg" alt="Stylish High Heels Thumbnail" class="thumbnail" onclick="changeImage('images/shoe1/5.jpg')">
+          </div>
         </div>
-        <div class="thumbnail-images">
-          <img src="images/shoe1/1.webp" alt="Stylish High Heels Thumbnail" class="thumbnail" onclick="changeImage('images/shoe1/1.webp')">
-          <img src="images/shoe1/2.webp" alt="Stylish High Heels Thumbnail" class="thumbnail" onclick="changeImage('images/shoe1/2.webp')">
-          <img src="images/shoe1/3.jpg" alt="Stylish High Heels Thumbnail" class="thumbnail" onclick="changeImage('images/shoe1/3.jpg')">
-<img src="images/shoe1/4.jpg" alt="Stylish High Heels Thumbnail" class="thumbnail" onclick="changeImage('images/shoe1/4.jpg')">
-<img src="images/shoe1/5.jpg" alt="Stylish High Heels Thumbnail" class="thumbnail" onclick="changeImage('images/shoe1/5.jpg')">
-
+        <div class="product-info">
+          <h2 class="company-name">JIMMY CHOO</h2>
+          <h1 class="product-title">Stylish High Heels</h1>
+          <p class="product-price">$125.00</p>
+          <p class="product-description">Elevate your style with these stunning high heels.</p>
+          <div class="quantity-selector">
+            <button class="increment-btn" onclick="incrementQuantity()">+</button>
+            <input type="number" class="quantity-input" id="quantity" value="0" min="0">
+            <button class="decrement-btn" onclick="decrementQuantity()">-</button>
+          </div>
+          <button class="add-to-cart-btn">Add to Cart</button>
         </div>
-      </div>
-      <div class="product-info">
-        <h1 class="product-title">Stylish High Heels</h1>
-        <p class="product-price">$125.00</p>
-        <p class="product-description">Elevate your style with these stunning high heels.</p>
-        <button class="add-to-cart-btn">Add to Cart</button>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 
   <footer>
