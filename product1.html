@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>Product 1 - Stylish High Heels</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="product1.html">Product 1</a>
+    <a href="product2.html">Product 2</a>
+    <a href="product3.html">Product 3</a>
+    <a href="product4.html">Product 4</a>
+    <a href="product5.html">Product 5</a>
+    <a href="cart.html">Cart</a>
+  </nav>
+
+  <header>
+    <h1>My Shoe Store</h1>
+  </header>
+
+  <main class="product-page">
+    <section class="product-details">
+      <div class="product-images">
+        <div class="main-image">
+          <img src="images/shoe1/1.webp" alt="Stylish High Heels" id="mainImage">
+        </div>
+        <div class="thumbnail-images">
+          <img src="images/shoe1/2.webp" alt="Stylish High Heels Thumbnail" class="thumbnail" onclick="changeImage('images/shoe1/2.webp')">
+          <img src="images/shoe1/3.webp" alt="Stylish High Heels Thumbnail" class="thumbnail" onclick="changeImage('images/shoe1/3.webp')">
+          <img src="images/shoe1/4.webp" alt="Stylish High Heels Thumbnail" class="thumbnail" onclick="changeImage('images/shoe1/4.webp')">
+          <img src="images/shoe1/5.webp" alt="Stylish High Heels Thumbnail" class="thumbnail" onclick="changeImage('images/shoe1/5.webp')">
+        </div>
+      </div>
+      <div class="product-info">
+        <h1 class="product-title">Stylish High Heels</h1>
+        <p class="product-price">$125.00</p>
+        <p class="product-description">Elevate your style with these stunning high heels.</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 My Shoe Store. All rights reserved.</p>
+  </footer>
+
+  <script src="product1.js"></script>
+</body>
+</html>

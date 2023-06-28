@@ -118,3 +118,15 @@
     }
   }
   
+/* Adjust the size of thumbnail images */
+.thumbnail {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  cursor: pointer;
+}
+/* Adjust the size of the main image */
+.main-image img {
+  max-width: 400px;
+  height: auto;
+}

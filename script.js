@@ -14,14 +14,19 @@ function displayShoes(shoes) {
   shoes.forEach(shoe => {
     const productItem = createProductItem(shoe);
     productContainer.appendChild(productItem);
+
+    // Add click event listener to each shoe item
+    productItem.addEventListener('click', () => {
+      // Redirect to the respective product HTML page
+      window.location.href = `product${shoe.id}.html`;
+    });
   });
 }
 
 // Create product item element
 function createProductItem(shoe) {
-  const productItem = document.createElement('a');
+  const productItem = document.createElement('div');
   productItem.classList.add('product-item');
-  productItem.href = `product.html?id=${shoe.id}`; // Set the href attribute to link to the individual product page
 
   const image = document.createElement('img');
   image.src = shoe.image;
