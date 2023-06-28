@@ -1,75 +1,74 @@
 {
-    "shoes": [
-      {
-        "id": 1,
-        "name": "Stylish High Heels",
-        "description": "Elevate your style with these stunning high heels.",
-        "price": 125.00,
-        "image": "shoe1.jpg"
-      },
-      {
-        "id": 2,
-        "name": "Elegant Pumps",
-        "description": "Walk with elegance in these beautiful pumps.",
-        "price": 99.99,
-        "image": "shoe2.jpg"
-      },
-      {
-        "id": 3,
-        "name": "Classic Stilettos",
-        "description": "Timeless and sophisticated stilettos for any occasion.",
-        "price": 149.99,
-        "image": "shoe3.jpg"
-      },
-      {
-        "id": 4,
-        "name": "Comfortable Wedges",
-        "description": "Stay comfortable and stylish with these trendy wedges.",
-        "price": 79.99,
-        "image": "shoe4.jpg"
-      },
-      {
-        "id": 5,
-        "name": "Fashionable Sandals",
-        "description": "Step out in style with these fashionable sandals.",
-        "price": 69.99,
-        "image": "shoe5.jpg"
-      },
-      {
-        "id": 6,
-        "name": "Chic Boots",
-        "description": "Make a statement with these chic and trendy boots.",
-        "price": 159.99,
-        "image": "shoe6.jpg"
-      },
-      {
-        "id": 7,
-        "name": "Sporty Sneakers",
-        "description": "Stay active and stylish with these sporty sneakers.",
-        "price": 89.99,
-        "image": "shoe7.jpg"
-      },
-      {
-        "id": 8,
-        "name": "Casual Flats",
-        "description": "Comfortable and versatile flats for everyday wear.",
-        "price": 59.99,
-        "image": "shoe8.jpg"
-      },
-      {
-        "id": 9,
-        "name": "Trendy Mules",
-        "description": "Get on-trend with these stylish and comfortable mules.",
-        "price": 89.99,
-        "image": "shoe9.jpg"
-      },
-      {
-        "id": 10,
-        "name": "Summer Espadrilles",
-        "description": "Stay cool and fashionable with these summer espadrilles.",
-        "price": 79.99,
-        "image": "shoe10.jpg"
-      }
-    ]
-  }
-  
+  "shoes": [
+    {
+      "id": 1,
+      "name": "Stylish High Heels",
+      "description": "Elevate your style with these stunning high heels.",
+      "price": 125.00,
+      "image": "images/shoe1/1.webp"
+    },
+    {
+      "id": 2,
+      "name": "Elegant Pumps",
+      "description": "Walk with elegance in these beautiful pumps.",
+      "price": 99.99,
+      "image": "images/shoe2/1.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Classic Stilettos",
+      "description": "Timeless and sophisticated stilettos for any occasion.",
+      "price": 149.99,
+      "image": "images/shoe3/1.png"
+    },
+    {
+      "id": 4,
+      "name": "Comfortable Wedges",
+      "description": "Stay comfortable and stylish with these trendy wedges.",
+      "price": 79.99,
+      "image": "images/shoe4/1.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Fashionable Sandals",
+      "description": "Step out in style with these fashionable sandals.",
+      "price": 69.99,
+      "image": "images/shoe5/1.png"
+    },
+    {
+      "id": 6,
+      "name": "Chic Boots",
+      "description": "Make a statement with these chic and trendy boots.",
+      "price": 159.99,
+      "image": "images/shoe6/1.webp"
+    },
+    {
+      "id": 7,
+      "name": "Sporty Sneakers",
+      "description": "Stay active and stylish with these sporty sneakers.",
+      "price": 89.99,
+      "image": "images/shoe7/image-product-1-thumbnail.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Casual Flats",
+      "description": "Comfortable and versatile flats for everyday wear.",
+      "price": 59.99,
+      "image": "images/shoe8/1.webp"
+    },
+    {
+      "id": 9,
+      "name": "Ankle Strap Heels",
+      "description": "Step out in style with these elegant ankle strap heels.",
+      "price": 109.99,
+      "image": "images/shoe9/1.png"
+    },
+    {
+      "id": 10,
+      "name": "Mary Janes",
+      "description": "Classic and charming Mary Janes for a timeless look.",
+      "price": 79.99,
+      "image": "images/shoe10/1.jpg"
+    }
+  ]
+}
