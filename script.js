@@ -19,8 +19,9 @@ function displayShoes(shoes) {
 
 // Create product item element
 function createProductItem(shoe) {
-  const productItem = document.createElement('div');
+  const productItem = document.createElement('a');
   productItem.classList.add('product-item');
+  productItem.href = `product.html?id=${shoe.id}`; // Set the href attribute to link to the individual product page
 
   const image = document.createElement('img');
   image.src = shoe.image;
