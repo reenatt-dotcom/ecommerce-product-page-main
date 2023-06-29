@@ -217,3 +217,25 @@ addToCartBtn.addEventListener('click', function() {
   // Call the addToCart function with the selected quantity
   addToCart(quantity);
 });
+
+function changeImage(imageUrl) {
+  // Get the main image element
+  const mainImage = document.getElementById('mainImage');
+  
+  // Change the source of the main image
+  mainImage.src = imageUrl;
+}
+
+// Get the thumbnail images
+const thumbnailImages = document.querySelectorAll('.thumbnail');
+
+// Add an event listener to each thumbnail image
+thumbnailImages.forEach(function(thumbnail) {
+  thumbnail.addEventListener('click', function() {
+    // Get the URL of the clicked thumbnail image
+    const imageUrl = thumbnail.src;
+    
+    // Call the changeImage function with the URL of the clicked image
+    changeImage(imageUrl);
+  });
+});
