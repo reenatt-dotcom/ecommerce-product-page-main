@@ -148,3 +148,72 @@ function getProductById(productId) {
 
   return products.find(product => product.id === productId);
 }
+
+function handleQuantityChange(increment) {
+  const quantityInput = document.getElementById('quantity-input');
+  let quantity = parseInt(quantityInput.value);
+
+  if (increment) {
+    quantity += 1;
+  } else {
+    if (quantity > 0) {
+      quantity -= 1;
+    }
+  }
+
+  quantityInput.value = quantity;
+}
+
+// Attach event listeners to the increment and decrement buttons
+const incrementBtn = document.getElementById('increment-btn');
+const decrementBtn = document.getElementById('decrement-btn');
+
+incrementBtn.addEventListener('click', function() {
+  handleQuantityChange(true);
+});
+
+decrementBtn.addEventListener('click', function() {
+  handleQuantityChange(false);
+});
+
+function addToCart(quantity) {
+  const productId = 1; // Assuming the product ID is 1 for this example
+  const cartItem = {
+    id: productId,
+    quantity: quantity,
+  };
+
+  // Retrieve existing cart items from localStorage
+  let cartItems = getCartItems();
+
+  // Check if the product is already in the cart
+  const existingItemIndex = cartItems.findIndex(item => item.id === productId);
+  if (existingItemIndex !== -1) {
+    // Update the quantity if the product already exists in the cart
+    cartItems[existingItemIndex].quantity += quantity;
+  } else {
+    // Add the new product to the cart
+    cartItems.push(cartItem);
+  }
+
+  // Store the updated cart items in localStorage
+  storeCartItems(cartItems);
+
+  // Provide feedback to the user
+  alert(`Added ${quantity} pairs to the cart.`);
+}
+
+// Get the "Add to Cart" button element
+const addToCartBtn = document.querySelector('.add-to-cart-btn');
+
+// Add an event listener to the button
+addToCartBtn.addEventListener('click', function() {
+  // Retrieve the quantity input element
+  const quantityInput = document.getElementById('quantity-input');
+  
+  // Retrieve the selected quantity
+  const quantity = parseInt(quantityInput.value);
+  
+  // Call the addToCart function with the selected quantity
+  addToCart(quantity);
+});
