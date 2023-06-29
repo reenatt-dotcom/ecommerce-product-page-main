@@ -22,6 +22,11 @@ fetch('shoes.json')
       productPrice.textContent = `$${shoe.price.toFixed(2)}`;
       productItem.appendChild(productPrice);
 
+      // Add click event to navigate to the respective HTML page
+      productItem.addEventListener('click', () => {
+        window.location.href = `product${shoe.id}.html`;
+      });
+
       productContainer.appendChild(productItem);
     });
   })
