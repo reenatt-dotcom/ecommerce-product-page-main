@@ -4,13 +4,10 @@ function getCartItems() {
   return cartItems ? JSON.parse(cartItems) : [];
 }
 
-
-
 // Store cart items in localStorage
 function storeCartItems(cartItems) {
   localStorage.setItem('cartItems', JSON.stringify(cartItems));
 }
-
 
 // Add selected quantity to cart
 function addToCart(quantity) {
@@ -39,7 +36,6 @@ function addToCart(quantity) {
   // Provide feedback or redirect to the cart page
   alert(`Added ${quantity} pairs to the cart.`);
 }
-
 
 // Display cart contents on cart.html
 function displayCart() {
@@ -75,9 +71,6 @@ function displayCart() {
   }
 }
 
-
-
-
 // Retrieve the product title based on its ID
 function getProductTitle(productId) {
   // Replace this with your implementation to fetch the product title based on the ID
@@ -94,7 +87,6 @@ function getProductTitle(productId) {
   return productMap[productId] || 'Unknown Product';
 }
 
-
 // Retrieve the product price based on its ID
 function getProductPrice(productId) {
   let price = 0;
@@ -110,14 +102,13 @@ function getProductPrice(productId) {
     // Add more cases for other product IDs
 
     default:
-      price = 0;
+      price = 0.00;
   }
 
   return price;
 }
 
-
-// Retrieve the product image based on its ID
+// Retrieve the product image URL based on its ID
 function getProductImage(productId) {
   let imageUrl = '';
 
@@ -137,17 +128,19 @@ function getProductImage(productId) {
 
   return imageUrl;
 }
+
 // Get product details by ID
 function getProductById(productId) {
   // Replace the code below with your actual implementation
   // Here, we are returning some example data
-  const products = [
-    { id: 1, title: 'Stylish High Heels', price: 125, image: 'images/shoe1/1.webp' },
-    { id: 2, title: 'Elegant Pumps', price: 99, image: 'images/shoe2/1.webp' },
-    // Add more products as needed
-  ];
+  const product = {
+    id: productId,
+    title: getProductTitle(productId),
+    price: getProductPrice(productId),
+    image: getProductImage(productId),
+  };
 
-  return products.find(product => product.id === productId);
+  return product;
 }
 
 function handleQuantityChange(increment) {
@@ -162,12 +155,14 @@ function handleQuantityChange(increment) {
     }
   }
 
-  quantityInput.value = quantity;
+  quantityInput.value = quantity.toString();
 }
+
 
 // Attach event listeners to the increment and decrement buttons
 const incrementBtn = document.getElementById('increment-btn');
 const decrementBtn = document.getElementById('decrement-btn');
+
 
 incrementBtn.addEventListener('click', function() {
   handleQuantityChange(true);
@@ -177,58 +172,30 @@ decrementBtn.addEventListener('click', function() {
   handleQuantityChange(false);
 });
 
-function addToCart(quantity) {
-  const productId = 1; // Assuming the product ID is 1 for this example
-  const cartItem = {
-    id: productId,
-    quantity: quantity,
-  };
-
-  // Retrieve existing cart items from localStorage
-  let cartItems = getCartItems();
-
-  // Ensure cartItems is an array
-  if (!Array.isArray(cartItems)) {
-    cartItems = [];
-  }
-
-  // Check if the product is already in the cart
-  const existingItemIndex = cartItems.findIndex(item => item.id === productId);
-  if (existingItemIndex !== -1) {
-    // Update the quantity if the product already exists in the cart
-    cartItems[existingItemIndex].quantity += quantity;
-  } else {
-    // Add the new product to the cart
-    cartItems.push(cartItem);
-  }
-
-  // Store the updated cart items in localStorage
-  storeCartItems(cartItems);
-
-  // Provide feedback to the user
-  alert(`Added ${quantity} pairs to the cart.`);
-}
 
 
 // Get the "Add to Cart" button element
 const addToCartBtn = document.querySelector('.add-to-cart-btn');
 
 // Add an event listener to the button
-addToCartBtn.addEventListener('click', function() {
+addToCartBtn.addEventListener('click', function () {
   // Retrieve the quantity input element
   const quantityInput = document.getElementById('quantity-input');
-  
+
   // Retrieve the selected quantity
   const quantity = parseInt(quantityInput.value);
-  
+
   // Call the addToCart function with the selected quantity
   addToCart(quantity);
 });
 
+// Display the initial product image
+changeImage('images/shoe1/1.webp');
+
 function changeImage(imageUrl) {
   // Get the main image element
   const mainImage = document.getElementById('mainImage');
-  
+
   // Change the source of the main image
   mainImage.src = imageUrl;
 }
@@ -237,12 +204,15 @@ function changeImage(imageUrl) {
 const thumbnailImages = document.querySelectorAll('.thumbnail');
 
 // Add an event listener to each thumbnail image
-thumbnailImages.forEach(function(thumbnail) {
-  thumbnail.addEventListener('click', function() {
+thumbnailImages.forEach(function (thumbnail) {
+  thumbnail.addEventListener('click', function () {
     // Get the URL of the clicked thumbnail image
     const imageUrl = thumbnail.src;
-    
+
     // Call the changeImage function with the URL of the clicked image
     changeImage(imageUrl);
   });
 });
+
+// Call the displayCart function to show the cart contents on the cart.html page
+displayCart();
