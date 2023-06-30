@@ -5,6 +5,7 @@ function getCartItems() {
 }
 
 
+
 // Store cart items in localStorage
 function storeCartItems(cartItems) {
   localStorage.setItem('cartItems', JSON.stringify(cartItems));
@@ -186,6 +187,11 @@ function addToCart(quantity) {
   // Retrieve existing cart items from localStorage
   let cartItems = getCartItems();
 
+  // Ensure cartItems is an array
+  if (!Array.isArray(cartItems)) {
+    cartItems = [];
+  }
+
   // Check if the product is already in the cart
   const existingItemIndex = cartItems.findIndex(item => item.id === productId);
   if (existingItemIndex !== -1) {
@@ -202,6 +208,7 @@ function addToCart(quantity) {
   // Provide feedback to the user
   alert(`Added ${quantity} pairs to the cart.`);
 }
+
 
 // Get the "Add to Cart" button element
 const addToCartBtn = document.querySelector('.add-to-cart-btn');
