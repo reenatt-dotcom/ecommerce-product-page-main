@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor | Interactive card details form</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+    /* Styles for card and text elements */
+    .card-container {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .card-container img {
+      width: 100%;
+      max-width: 500px; /* Adjust max width as per your card image dimensions */
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .card-text {
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      position: absolute;
+    }
+
+    #card-number-front {
+      top: 150px; /* Adjust the top position as per your card image */
+      left: 40px; /* Adjust the left position as per your card image */
+    }
+
+    #cardholder-name-front {
+      top: 200px; /* Adjust the top position as per your card image */
+      left: 40px; /* Adjust the left position as per your card image */
+    }
+
+    #exp-date-front {
+      top: 200px; /* Adjust the top position as per your card image */
+      right: 40px; /* Adjust the right position as per your card image */
+    }
+
+    #cvc-back {
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      position: absolute;
+      top: 100px; /* Adjust the top position as per your card image */
+      right: 40px; /* Adjust the right position as per your card image */
+    }
+
+    /* Styles for the form */
+    form {
+      width: 300px; /* Adjust the width as per your preference */
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: purple;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Styles for the completed state */
+    #completed-state {
+      display: none;
+      text-align: center;
+    }
+
+    #completed-state h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    #completed-state p {
+      margin-bottom: 20px;
+    }
+
+    /* Footer Styles */
+    footer {
+      margin-top: auto;
+      text-align: center;
+      padding: 20px 0;
+      background-color: #f2f2f2;
+      width: 100%;
+    }
+  </style>
+  <script>
+    function updateCard() {
+      // Get form field values
+      var cardNumber = document.getElementById('card-number').value;
+      var cardholderName = document.getElementById('cardholder-name').value;
+      var expMonth = document.getElementById('exp-month').value;
+      var expYear = document.getElementById('exp-year').value;
+      var cvc = document.getElementById('cvc').value;
+
+      // Update card front
+      document.getElementById('card-number-front').textContent = formatCardNumber(cardNumber);
+      document.getElementById('cardholder-name-front').textContent = cardholderName;
+      document.getElementById('exp-date-front').textContent = formatExpDate(expMonth, expYear);
+
+      // Update card back
+      document.getElementById('cvc-back').textContent = cvc;
+    }
+
+    function formatCardNumber(cardNumber) {
+      // Format card number as groups of 4 digits
+      var formattedNumber = cardNumber.replace(/\s/g, '').replace(/(\d{4})/g, '$1 ');
+      return formattedNumber.trim();
+    }
+
+    function formatExpDate(expMonth, expYear) {
+      // Format expiration date as MM/YY
+      var formattedDate = expMonth + '/' + expYear.slice(-2);
+      return formattedDate;
+    }
+
+    function showCompletedState() {
+      document.getElementById('completed-state').style.display = 'block';
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="card-container">
+      <img src="images/bg-card-front.png" alt="Card Front">
+      <p id="card-number-front" class="card-text">0000 0000 0000 0000</p>
+      <p id="cardholder-name-front" class="card-text">Jane Appleseed</p>
+      <p id="exp-date-front" class="card-text">00/00</p>
+    </div>
+
+    <form>
+      <label for="cardholder-name">Cardholder Name</label>
+      <input type="text" id="cardholder-name" placeholder="e.g. Jane Appleseed" oninput="updateCard()">
+
+      <label for="card-number">Card Number</label>
+      <input type="text" id="card-number" placeholder="e.g. 1234 5678 9123 0000" oninput="updateCard()">
+
+      <label for="exp-month">Exp. Date (MM/YY)</label>
+      <input type="text" id="exp-month" placeholder="MM" oninput="updateCard()">
+      <input type="text" id="exp-year" placeholder="YY" oninput="updateCard()">
+
+      <label for="cvc">CVC</label>
+      <input type="text" id="cvc" placeholder="e.g. 123" oninput="updateCard()">
+
+      <button type="button" onclick="updateCard()" style="background-color: purple;">Confirm</button>
+    </form>
+
+    <div class="card-container">
+      <img src="images/bg-card-back.png" alt="Card Back">
+      <p id="cvc-back" class="card-text">000</p>
+    </div>
+
+    <div id="completed-state">
+      <h2>Thank you!</h2>
+      <p>We've added your card details</p>
+      <button onclick="showCompletedState()">Continue</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#">Reena</a>.
+    </div>
+  </footer>
+</body>
+</html>

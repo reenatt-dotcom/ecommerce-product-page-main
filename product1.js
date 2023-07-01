@@ -43,15 +43,25 @@ function addToCart(quantity) {
 function displayCart() {
   const cartItems = getCartItems();
   const cartContainer = document.getElementById('cart-container');
+  const checkoutButton = document.createElement('button');
+  checkoutButton.textContent = 'Checkout';
+  checkoutButton.classList.add('checkout-button');
+  checkoutButton.addEventListener('click', () => {
+    // Redirect to the checkout page
+    window.location.href = 'checkout.html';
+  });
 
   if (cartItems.length === 0) {
     cartContainer.innerHTML = '<p>Your cart is empty.</p>';
   } else {
     let cartHTML = '<ul>';
 
+    let totalPrice = 0; // Variable to store the total price
+
     for (const item of cartItems) {
       const product = getProductById(item.id);
-      const totalPrice = product.price * item.quantity;
+      const itemPrice = product.price * item.quantity;
+      totalPrice += itemPrice; // Update the total price
 
       cartHTML += `
         <li>
@@ -62,7 +72,7 @@ function displayCart() {
             <h3 class="product-title">${product.title}</h3>
             <p class="product-price">$${product.price.toFixed(2)}</p>
             <p class="product-quantity">Quantity: ${item.quantity}</p>
-            <p class="product-total-price">Total: $${totalPrice.toFixed(2)}</p>
+            <p class="product-total-price">Total: $${itemPrice.toFixed(2)}</p>
             <button class="remove-from-cart-btn" data-product-id="${product.id}">Remove</button>
           </div>
         </li>
@@ -71,6 +81,13 @@ function displayCart() {
 
     cartHTML += '</ul>';
     cartContainer.innerHTML = cartHTML;
+
+    // Append the total price and checkout button
+    const totalContainer = document.createElement('div');
+    totalContainer.classList.add('cart-total');
+    totalContainer.innerHTML = `<p>Total Price: $${totalPrice.toFixed(2)}</p>`;
+    totalContainer.appendChild(checkoutButton);
+    cartContainer.appendChild(totalContainer);
 
     // Add event listeners to the remove buttons
     const removeButtons = document.querySelectorAll('.remove-from-cart-btn');
@@ -82,6 +99,7 @@ function displayCart() {
     });
   }
 }
+
 
 function removeFromCart(productId) {
   let cartItems = getCartItems();
