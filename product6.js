@@ -275,3 +275,4 @@ function getCartItems() {
   // Call the displayCart function to show the cart contents on the cart.html page
   displayCart();
   
+  
