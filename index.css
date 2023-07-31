@@ -95,13 +95,7 @@ nav a {
   color: #333;
 }
 
-/* Footer styles */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-}
+
 
 /* Responsive styles */
 @media screen and (max-width: 768px) {
